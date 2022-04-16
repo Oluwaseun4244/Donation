@@ -559,13 +559,7 @@ console.log("sorted", sortedCode)
                 fontWeight="500"
                 w="100%"
                 onClick={() => handleDonateModal()}
-                disabled={
-                  validator.isEmail(email) && email.length
-                    ? false
-                    : mailError.length
-                    ? true
-                    : true
-                }
+  
               >
                 DONATE NOW
               </Button>
