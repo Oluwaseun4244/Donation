@@ -20,7 +20,6 @@ import PaymentModal from "./PaymentModal";
 import countryline from "../components/data/country.json";
 
 const Donate = () => {
-
   const countryCopy = [...countryline];
 
   const sortingCode = (a, b) => {
@@ -34,8 +33,6 @@ const Donate = () => {
   };
 
   const sortedCode = countryCopy.sort(sortingCode);
-
-console.log("sorted", sortedCode)
 
   const states = [
     "Abia",
@@ -197,17 +194,31 @@ console.log("sorted", sortedCode)
     alert("Opps, Payment not completed");
   };
 
-  const handleDonateModal = () => {
-    if (amount <= 0) {
-      setError("The amount cannot be zero");
-    } else if (email == "") {
-      setMailError("Email cannot be empty");
-    } else {
-      setError("");
-      paymentOpen();
-      // initializePayment(onSuccess, onClose);
+    // const handleDonateModal = () => {
+    //   if (amount <= 0) {
+    //     setError("The amount cannot be zero");
+    //   } else if (email == "") {
+    //     setMailError("Email cannot be empty");
+    //   } else {
+    //     setError("");
+    //     paymentOpen();
+    //     // initializePayment(onSuccess, onClose);
+    //   }
+    // };
+
+    const handleDonateModal=()=>{
+        if(error !== '' || mailError !== ''){
+            return
+        }else if(amount == ''){
+            setError('Amount cannot be empty')
+        }else if(email == ''){
+            setMailError('Email Address cannot be empty')
+        }else{
+             setError('')
+            paymentOpen()
+        }
     }
-  };
+
 
   const handleDonate = () => {
     // console.log('donate clicked')
@@ -348,8 +359,12 @@ console.log("sorted", sortedCode)
                 fontSize={{ base: "13px", md: "15px" }}
                 fontWeight="500"
                 color="darkgreen"
-                onClick={() =>
-                  setAmount(pr[currency].slice(1).replace(/\,/g, ""))
+                onClick={() => {
+
+                    setAmount(pr[currency].slice(1).replace(/\,/g, ""))
+                    setError("")
+                }
+                 
                 }
               >
                 {pr[currency]}
@@ -365,7 +380,7 @@ console.log("sorted", sortedCode)
           <Flex direction="column" py={2} gap={1}>
             <Input
               type="number"
-              placeholder="Enter Amount"
+              placeholder="Enter Your Preferred Amount"
               color="darkgreen"
               fontSize="16px"
               fontWeight="400"
@@ -421,17 +436,13 @@ console.log("sorted", sortedCode)
               required
               onChange={(e) => {
                 const newEmail = e.target.value;
-                // if (newEmail.length){
+
                 if (validator.isEmail(newEmail) && newEmail !== "") {
                   setMailError("");
                   setEmail(newEmail);
                 } else {
                   setMailError("Invalid Email Address");
                 }
-                // } else {
-                //     setEmail("")
-
-                // }
               }}
             />
             {mailError !== "" && (
@@ -559,7 +570,6 @@ console.log("sorted", sortedCode)
                 fontWeight="500"
                 w="100%"
                 onClick={() => handleDonateModal()}
-  
               >
                 DONATE NOW
               </Button>
