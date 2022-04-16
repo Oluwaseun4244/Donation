@@ -672,17 +672,17 @@ const Donate = () => {
               required
               onChange={(e) => {
                 const newEmail = e.target.value;
-                if (newEmail.length){
+                // if (newEmail.length){
                     if (validator.isEmail(newEmail) && newEmail !== "") {
                         setMailError("");
                         setEmail(newEmail);
                       } else {
                         setMailError("Invalid Email Address");
                       } 
-                } else {
-                    setEmail("")
+                // } else {
+                //     setEmail("")
                     
-                }
+                // }
     
               }}
             />
