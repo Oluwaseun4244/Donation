@@ -234,7 +234,7 @@ const Donate = () => {
   };
   console.log("type", typeof amount);
   return (
-    <Flex gap={{ base: 3, md: 12 }} direction={{ base: "column", md: "row" }}>
+    <Flex  gap={{ base: 3, md: 12 }} direction={{ base: "column", md: "row" }}>
       <Box w={{ base: "100%", md: "50%" }}>
         <Flex
           w={{ base: "100%", md: "100%" }}

@@ -7,7 +7,7 @@ const AboutUs = () => {
     <Flex gap={{ base: 1, md: 12 }} direction={{ base: "column", md: "row" }}>
       <Flex w={{ base: "100%", md: "45%" }}>
         <Flex
-          h={{ base: "420px", md: "870px" }}
+          h={{ base: "420px", md: "800px" }}
           w="100%"
           bgImage={profPng}
           backgroundSize={"contain"}
@@ -96,12 +96,13 @@ const AboutUs = () => {
                 fontWeight="400"
                 color="darkgreen"
                 w={{ base: "100%", md: "95%" }}
+                mb={{base: "30px", md: "0px"}}
               >
-                <strong>His passion for the everyday Nigerian;</strong> his several
-                programmes for entrepreneurs and market women, his obsession
-                with young people and their prospects, his insistence on
-                innovation as the future. He cares, deeply. He looks you in the
-                eye and he means it.
+                <strong>His passion for the everyday Nigerian;</strong> his
+                several programmes for entrepreneurs and market women, his
+                obsession with young people and their prospects, his insistence
+                on innovation as the future. He cares, deeply. He looks you in
+                the eye and he means it.
               </Text>
             </li>
           </ul>
