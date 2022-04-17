@@ -17,7 +17,8 @@ import validator from "validator";
 import { usePaystackPayment } from "react-paystack";
 import SuccessModal from "./SuccessModal";
 import PaymentModal from "./PaymentModal";
-import countryline from "../components/data/country.json";
+import countryline from "../components/data/countries.json";
+import prices from "../components/data/prices.json";
 
 const Donate = () => {
   const countryCopy = [...countryline];
@@ -74,50 +75,6 @@ const Donate = () => {
     "Zamfara",
   ];
 
-  const price = [
-    {
-      naira: "₦100",
-      dollar: "$1",
-      pounds: "£1",
-      euro: "€1",
-    },
-    {
-      naira: "₦500",
-      dollar: "$5",
-      pounds: "£5",
-      euro: "€5",
-    },
-    {
-      naira: "₦5,000",
-      dollar: "$10",
-      pounds: "£10",
-      euro: "€10",
-    },
-    {
-      naira: "₦10,000",
-      dollar: "$20",
-      pounds: "£20",
-      euro: "€20",
-    },
-    {
-      naira: "₦50,000",
-      dollar: "$100",
-      pounds: "£100",
-      euro: "€100",
-    },
-    {
-      naira: "₦500,000",
-      dollar: "$1,000",
-      pounds: "£1,000",
-      euro: "€1,000",
-    },
-    {
-      naira: "₦1,000,000",
-      dollar: "$2000",
-      pounds: "£2000",
-      euro: "€2000",
-    },
-  ];
   const { isOpen, onOpen: openModal, onClose: onCloseModal } = useDisclosure();
   const {
     isOpen: paymentisOpen,
@@ -137,7 +94,7 @@ const Donate = () => {
   const [age, setAge] = React.useState("");
   const [pay, setPay] = React.useState("false");
   const phone = phoneCode + phoneNumber;
-  console.log({ state, country, phone, age });
+//   console.log({ state, country, phone, age });
   let references = new Date().getTime().toString();
 
   const initializePayment = usePaystackPayment({
@@ -194,31 +151,30 @@ const Donate = () => {
     alert("Opps, Payment not completed");
   };
 
-    // const handleDonateModal = () => {
-    //   if (amount <= 0) {
-    //     setError("The amount cannot be zero");
-    //   } else if (email == "") {
-    //     setMailError("Email cannot be empty");
-    //   } else {
-    //     setError("");
-    //     paymentOpen();
-    //     // initializePayment(onSuccess, onClose);
-    //   }
-    // };
+  // const handleDonateModal = () => {
+  //   if (amount <= 0) {
+  //     setError("The amount cannot be zero");
+  //   } else if (email == "") {
+  //     setMailError("Email cannot be empty");
+  //   } else {
+  //     setError("");
+  //     paymentOpen();
+  //     // initializePayment(onSuccess, onClose);
+  //   }
+  // };
 
-    const handleDonateModal=()=>{
-        if(error !== '' || mailError !== ''){
-            return
-        }else if(amount == ''){
-            setError('Amount cannot be empty')
-        }else if(email == ''){
-            setMailError('Email Address cannot be empty')
-        }else{
-             setError('')
-            paymentOpen()
-        }
+  const handleDonateModal = () => {
+    if (error !== "" || mailError !== "") {
+      return;
+    } else if (amount == "") {
+      setError("Amount cannot be empty");
+    } else if (email == "") {
+      setMailError("Email Address cannot be empty");
+    } else {
+      setError("");
+      paymentOpen();
     }
-
+  };
 
   const handleDonate = () => {
     // console.log('donate clicked')
@@ -232,9 +188,9 @@ const Donate = () => {
       initializePayment(onSuccess, onClose);
     }
   };
-  console.log("type", typeof amount);
+//   console.log("type", typeof amount);
   return (
-    <Flex  gap={{ base: 3, md: 12 }} direction={{ base: "column", md: "row" }}>
+    <Flex gap={{ base: 3, md: 12 }} direction={{ base: "column", md: "row" }}>
       <Box w={{ base: "100%", md: "50%" }}>
         <Flex
           w={{ base: "100%", md: "100%" }}
@@ -352,7 +308,7 @@ const Donate = () => {
             spacing={{ base: 2, md: 4 }}
             py={{ base: 4, md: 8 }}
           >
-            {price.map((pr, index) => (
+            {prices.map((pr, index) => (
               <Button
                 key={index}
                 variant="outline"
@@ -360,12 +316,9 @@ const Donate = () => {
                 fontWeight="500"
                 color="darkgreen"
                 onClick={() => {
-
-                    setAmount(pr[currency].slice(1).replace(/\,/g, ""))
-                    setError("")
-                }
-                 
-                }
+                  setAmount(pr[currency].slice(1).replace(/\,/g, ""));
+                  setError("");
+                }}
               >
                 {pr[currency]}
               </Button>
@@ -467,7 +420,10 @@ const Donate = () => {
             </Text>
             <InputGroup>
               <InputLeftAddon children="+234">
-                <Select onChange={(e) => setPhoneCode(e.target.value)}>
+                <Select
+                  border="none"
+                  onChange={(e) => setPhoneCode(e.target.value)}
+                >
                   {sortedCode
                     .sort((a, b) => a - b)
                     .map((line, index) =>
@@ -508,7 +464,7 @@ const Donate = () => {
             >
               {countryline.map((country, index) =>
                 country.name === "Nigeria" ? (
-                  <option value={country.name} selected>
+                  <option key={index} value={country.name} selected>
                     {country.name}
                   </option>
                 ) : (
@@ -528,14 +484,12 @@ const Donate = () => {
                 What state do you reside?
               </Text>
               <Select
-                placeholder="Select State"
+                placeholder="Select"
                 w={{ base: "100%", md: "100%" }}
                 onChange={(e) => setState(e.target.value)}
               >
                 {states.map((state, index) => (
-                  <option value={state} selected>
-                    {state}
-                  </option>
+                  <option key={index} value={state}>{state}</option>
                 ))}
               </Select>
             </Flex>
@@ -550,10 +504,11 @@ const Donate = () => {
             >
               What’s your age bracket please?
             </Text>
-            <Select onChange={(e) => setAge(e.target.value)}>
-              <option value="18-25" selected>
-                18-25
-              </option>
+            <Select
+              placeholder="Select"
+              onChange={(e) => setAge(e.target.value)}
+            >
+              <option value="18-25">18-25</option>
               <option value="26-40">26-40</option>
               <option value="41-60">41-60</option>
               <option value="61 and Above">61 and Above</option>

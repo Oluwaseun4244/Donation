@@ -23,6 +23,7 @@ const Footer = () => {
         gap={2}
         pb={{ base: "60px", md: "80px" }}
       >
+        
         <Image w={{ base: "70%", md: "initial" }} src={logoPng} alt="logo" />
         {/* <Flex w='100%' alignItems={{base:'left', md:'center'}} >
                     </Flex> */}
@@ -68,7 +69,7 @@ const Footer = () => {
           >
             +234-815-9406-195
           </Text>
-          {/* <Text fontSize={{base:'18px', md:'24px'}} fontWeight='400' color='white'>+234 8012914116</Text> */}
+      
         </Flex>
         <Flex direction="column">
           <Text
