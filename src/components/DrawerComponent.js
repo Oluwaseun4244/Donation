@@ -14,11 +14,31 @@ import {
   Text
 } from '@chakra-ui/react'
 
-const DrawerComponent = ({open, close}) => {
+const DrawerComponent = ({open, close, home, about, contact, click}) => {
      const { isOpen, onOpen, onClose } = useDisclosure()
     const handleClose=()=>{
       close(false)
      
+    }
+
+    const handleModal=()=>{
+      click()
+      close()
+    }
+
+    const handleHome=()=>{
+      home()
+      close()
+    }
+
+    const handleAbout=()=>{
+      about()
+      close()
+    }
+
+    const handleContact=()=>{
+      contact()
+      close()
     }
     return (
         <>
@@ -38,11 +58,11 @@ const DrawerComponent = ({open, close}) => {
           <DrawerBody pt={12}>
             <Flex color='white' align='center' fontSize='16px' fontWeight='500' gap={12} direction='column'>
                 <Flex gap={8} direction='column'>
-                    <Text>Home</Text>
-                    <Text>About</Text>
-                    <Text>Contact</Text>
+                      <Text onClick={handleHome} cursor='pointer'>Home</Text>
+                    <Text onClick={handleAbout} cursor='pointer'>About</Text>
+                    <Text onClick={ handleContact} cursor='pointer'>Contact</Text>
                 </Flex>
-                <Button variant='action' p={6}>DONATE</Button>
+                <Button variant='action' p={6} onClick={handleModal}>DONATE</Button>
             </Flex>
           </DrawerBody>
         </DrawerContent>
