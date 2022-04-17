@@ -46,8 +46,7 @@ function TransferModal({ isOpen, onOpen, onClose }) {
               Swift Code: <strong>GTBINGLA</strong>
             </Text>
             <Text>
-              You may include the following text in your transaction if you
-              would like us to know it is you:
+              You may include your email address or phone number in the transaction narration, and we would know it is you!
             </Text>
             <Text mb="20px">
               <strong> AB1476</strong>

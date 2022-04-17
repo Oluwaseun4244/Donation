@@ -368,7 +368,7 @@ const Donate = () => {
               fontWeight="400"
               color="darkgreen"
             >
-              There is no minimum amount
+              Enter your Preferred Amount
             </Text>
           </Flex>
           <Flex direction="column" py={2} gap={1}>

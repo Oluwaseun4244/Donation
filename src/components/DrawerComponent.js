@@ -49,13 +49,14 @@ const DrawerComponent = ({open, close, home, about, contact, click}) => {
         isOpen={open && onOpen}
         placement='right'
         onClose={!open && onClose}
+       
       >
         <DrawerOverlay />
         <DrawerContent bg='darkgreen'>
           <DrawerCloseButton  onClick={handleClose}/>
           {/* <DrawerHeader>Create your account</DrawerHeader> */}
 
-          <DrawerBody pt={12}>
+          <DrawerBody pt={12} >
             <Flex color='white' align='center' fontSize='16px' fontWeight='500' gap={12} direction='column'>
                 <Flex gap={8} direction='column'>
                       <Text onClick={handleHome} cursor='pointer'>Home</Text>
