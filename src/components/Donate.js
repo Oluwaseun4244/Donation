@@ -333,7 +333,7 @@ const Donate = () => {
           <Flex direction="column" py={2} gap={1}>
             <Input
               type="number"
-              placeholder="Enter Your Preferred Amount"
+              placeholder="Enter amount"
               color="darkgreen"
               fontSize="16px"
               fontWeight="400"

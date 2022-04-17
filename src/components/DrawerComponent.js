@@ -50,6 +50,7 @@ const DrawerComponent = ({open, close, home, about, contact, click}) => {
         placement='right'
         onClose={!open && onClose}
        
+       
       >
         <DrawerOverlay />
         <DrawerContent bg='darkgreen'>
