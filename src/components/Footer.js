@@ -96,7 +96,7 @@ const Footer = () => {
         py={{ base: 6, md: 12 }}
         bg="darkgreen"
       >
-        <Flex TextAlign="center" w={{ base: "100%", md: "50%" }}>
+        <Flex textAlign="center" w={{ base: "100%", md: "50%" }}>
           <Text
             px={{base: "15%", md : "initial"}}
             fontSize={{ base: "14px", md: "18px" }}
