@@ -51,10 +51,11 @@ const Footer = () => {
             fontWeight="400"
             color="white"
           >
-            campaign@yemiosinbajo.ng
+
+            campaign@pyopartners.org
           </Text>
         </Flex>
-        <Flex direction="column">
+        {/* <Flex direction="column">
           <Text
             fontSize={{ base: "14px", md: "16px" }}
             fontWeight="500"
@@ -70,7 +71,8 @@ const Footer = () => {
             +234-815-9406-195
           </Text>
       
-        </Flex>
+        </Flex> */}
+        <Spacer />
         <Flex direction="column">
           <Text
             fontSize={{ base: "14px", md: "16px" }}
@@ -84,7 +86,8 @@ const Footer = () => {
             fontWeight="400"
             color="white"
           >
-            29 Ndjamena Crescent Wuse 2, Abuja, FCT.
+            {/* 29 Ndjamena Crescent Wuse 2, Abuja, FCT. */}
+            26 TY Danjuma, Asokoro, Abuja
           </Text>
         </Flex>
       </SimpleGrid>

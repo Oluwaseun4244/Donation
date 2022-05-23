@@ -6,14 +6,18 @@ const AboutUs = () => {
   return (
     <Flex gap={{ base: 1, md: 12 }} direction={{ base: "column", md: "row" }}>
       <Flex w={{ base: "100%", md: "45%" }}>
-        <Flex
+        <Box
           h={{ base: "420px", md: "800px" }}
           w="100%"
+          // mx="auto"
+          // bg="green"
           bgImage={profPng}
           backgroundSize={"contain"}
           bgRepeat="no-repeat"
-          mt={{ base: "0", md: "30%" }}
-        ></Flex>
+          mt={{ base: "0", md: "18%" }}
+        >
+          
+        </Box>
       </Flex>
       <Flex direction="column" w={{ base: "100%", md: "55%" }} gap={3}>
         <Flex direction="column" gap={2}>
@@ -96,7 +100,7 @@ const AboutUs = () => {
                 fontWeight="400"
                 color="darkgreen"
                 w={{ base: "100%", md: "95%" }}
-                mb={{base: "30px", md: "0px"}}
+                mb={{ base: "30px", md: "0px" }}
               >
                 <strong>His passion for the everyday Nigerian;</strong> his
                 several programmes for entrepreneurs and market women, his
