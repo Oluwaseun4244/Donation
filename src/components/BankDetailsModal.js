@@ -92,7 +92,6 @@ export default function BankDetailsModal({ isOpen, onOpen, onClose }) {
             <Button
               mt={4}
               variant="action"
-              color="white"
               py={{ base: 6, md: 6 }}
               fontSize="18px"
               fontWeight="500"
