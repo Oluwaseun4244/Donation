@@ -22,7 +22,8 @@ const Hero = ({ click }) => {
         fontWeight="400"
         color="white"
         lineHeight="1.5"
-        textAlign="justify"
+        textAlign="left"
+        // textAlign="justify"
       >
         Our campaign is YOUR movement: for intellect, for competence, for speed,
         for honesty.{" "}

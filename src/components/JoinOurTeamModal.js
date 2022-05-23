@@ -60,7 +60,7 @@ export default function JoinOurTeamModal({ isOpen, onOpen, onClose, pay }) {
       redirect: "follow",
     };
 
-    fetch("http://127.0.0.1:8000/api/join_us", requestOptions)
+    fetch("https://com.itskillscenter.com/api/join_us", requestOptions)
       .then((response) => response.json())
       .then((response) => {
         console.log("response", response.email);
